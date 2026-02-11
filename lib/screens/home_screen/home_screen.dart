@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/api_manager.dart';
+import 'package:news_app/core/api/api_manager.dart';
 import 'package:news_app/screens/home_screen/widgets/news_screen.dart';
 
 class HomeScreen extends StatefulWidget {

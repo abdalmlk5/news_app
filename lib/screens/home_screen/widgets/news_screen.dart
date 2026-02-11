@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/api_manager.dart';
+import 'package:news_app/core/api/api_manager.dart';
 
 class NewsScreen extends StatelessWidget {
   final String sourcesID;
