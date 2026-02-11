@@ -14,6 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   dio: ^5.9.1
   google_fonts: ^8.0.1
+  flutter_native_splash: ^2.4.7
 
 dev_dependencies:
   flutter_test:
@@ -28,3 +29,19 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+
+
+
+flutter_native_splash:
+  background_image: assets/splash_images/splash.png
+  background_image_dark: assets/splash_images/splash_dark.png
+  fullscreen: true                # default false
+  android_12:
+    color: "#FFFFFF"
+    color_dark: "#171717"
+
+    image: assets/splash_images/news_logo.png
+    image_dark: assets/splash_images/news_dark_logo.png
+
+    branding:      assets/splash_images/news_branding.png
+    branding_dark: assets/splash_images/news_dark_branding.png
