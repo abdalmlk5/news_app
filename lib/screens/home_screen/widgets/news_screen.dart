@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/api/api_manager.dart';
 
+import '../../../core/app_styles.dart';
+
 class NewsScreen extends StatelessWidget {
   final String sourcesID;
 
@@ -14,11 +16,11 @@ class NewsScreen extends StatelessWidget {
         if (snapshot.connectionState == .waiting) {
           return Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
-          return Text("some thing went wrong");
+          return Text("some thing went wrong", style: AppStyles.onPrimary20500);
         } else {
           var articles = snapshot.data?.articles ?? [];
           return articles.isEmpty
-              ? Center(child: Text("No data"))
+              ? Center(child: Text("No data", style: AppStyles.onPrimary20500))
               : ListView.builder(
                   itemBuilder: (context, index) {
                     return Container(
@@ -38,12 +40,14 @@ class NewsScreen extends StatelessWidget {
                           ),
                           Text(
                             articles[index].title ?? "",
+                            style: AppStyles.onPrimary16700,
                             maxLines: 1,
                             overflow: .ellipsis,
                           ),
                           SizedBox(height: 5),
                           Text(
                             articles[index].description ?? "",
+                            style: AppStyles.onPrimary14500,
                             maxLines: 2,
                             overflow: .ellipsis,
                           ),
@@ -52,13 +56,14 @@ class NewsScreen extends StatelessWidget {
                           Row(
                             mainAxisAlignment: .spaceBetween,
                             children: [
-                              Text(articles[index].author ?? ""),
-                              // Text(
-                              //   articles[index].author?.split(" ").first ?? "",
-                              // ),
+                              Text(
+                                "${articles[index].author?.split(" ")[0]} ${articles[index].author?.split(" ")[1]}",
+                                style: AppStyles.gray12500,
+                              ),
                               Text(
                                 articles[index].publishedAt?.substring(0, 10) ??
                                     "",
+                                style: AppStyles.gray12500,
                               ),
                             ],
                           ),

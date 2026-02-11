@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/api/api_manager.dart';
+import 'package:news_app/core/app_styles.dart';
 import 'package:news_app/screens/home_screen/widgets/news_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,14 +18,20 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("home"), centerTitle: true),
+      appBar: AppBar(
+        title: Text("home", style: AppStyles.onPrimary20500),
+        centerTitle: true,
+      ),
       body: FutureBuilder(
         future: ApiManager.getSources(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == .waiting) {
             return Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
-            return Text("some thing went wrong");
+            return Text(
+              "some thing went wrong",
+              style: AppStyles.onPrimary20500,
+            );
           } else {
             var dataList = snapshot.data?.sources ?? [];
             return Column(
@@ -38,6 +45,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     }),
                     isScrollable: true,
                     tabAlignment: .start,
+                    labelStyle: AppStyles.onPrimary16700,
+                    unselectedLabelStyle: AppStyles.onPrimary14500,
                     indicatorColor: Colors.black,
                     dividerColor: Colors.transparent,
                     tabs: dataList
