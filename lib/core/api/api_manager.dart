@@ -5,10 +5,10 @@ import 'package:news_app/models/source_response.dart';
 class ApiManager {
   static Dio dio = Dio();
 
-  static Future<SourceResponse?> getSources() async {
+  static Future<SourceResponse?> getSources({required String categoryID}) async {
     try {
       Response response = await dio.get(
-        "https://newsapi.org/v2/top-headlines/sources?apiKey=1b959486a81d4e48a70db1c3676fe6a1",
+        "https://newsapi.org/v2/top-headlines/sources?apiKey=1b959486a81d4e48a70db1c3676fe6a1&category=$categoryID",
       );
       SourceResponse sourceResponse = SourceResponse.fromJson(response.data);
       return sourceResponse;
@@ -18,7 +18,8 @@ class ApiManager {
     return null;
   }
 
-  static Future<NewsDataResponse?> getNewsData(String sourcesID) async {
+  static Future<NewsDataResponse?> getNewsData(
+      {required String sourcesID,}) async {
     try {
       Response response = await dio.get(
         "https://newsapi.org/v2/everything?apiKey=1b959486a81d4e48a70db1c3676fe6a1&sources=$sourcesID",

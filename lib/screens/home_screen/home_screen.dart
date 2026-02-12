@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/api/api_manager.dart';
 import 'package:news_app/core/app_styles.dart';
-import 'package:news_app/screens/home_screen/widgets/news_screen.dart';
+import 'package:news_app/models/category_model.dart';
+import 'package:news_app/screens/home_screen/views/categories_view.dart';
+import 'package:news_app/screens/home_screen/views/sources_view.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = '/';
@@ -13,56 +14,25 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int selectedIndex = 0;
+  CategoryModel? selectedCategory;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("home", style: AppStyles.onPrimary20500),
+        title: Text("home", style: AppStyles.onPrimary24700),
         centerTitle: true,
       ),
-      body: FutureBuilder(
-        future: ApiManager.getSources(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == .waiting) {
-            return Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Text(
-              "some thing went wrong",
-              style: AppStyles.onPrimary20500,
-            );
-          } else {
-            var dataList = snapshot.data?.sources ?? [];
-            return Column(
-              children: [
-                DefaultTabController(
-                  initialIndex: selectedIndex,
-                  length: dataList.length,
-                  child: TabBar(
-                    onTap: (value) => setState(() {
-                      selectedIndex = value;
-                    }),
-                    isScrollable: true,
-                    tabAlignment: .start,
-                    labelStyle: AppStyles.onPrimary16700,
-                    unselectedLabelStyle: AppStyles.onPrimary14500,
-                    indicatorColor: Colors.black,
-                    dividerColor: Colors.transparent,
-                    tabs: dataList
-                        .map((e) => Tab(child: Text(e.name ?? "")))
-                        .toList(),
-                  ),
-                ),
-                Expanded(
-                  child: NewsScreen(
-                    sourcesID: dataList[selectedIndex].id ?? '',
-                  ),
-                ),
-              ],
-            );
-          }
-        },
+      body: selectedCategory == null
+          ? CategoriesView(
+              onTap: (CategoryModel model) {
+                setState(() {
+                  selectedCategory = model;
+                });
+              },
+            )
+          : SourcesView(
+        categoryID: selectedCategory!.id,
       ),
     );
   }

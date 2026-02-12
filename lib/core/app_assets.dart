@@ -1,29 +1,20 @@
 class AppAssets {
-  //splash screen images
-  static const String splash = 'assets/splash_images/splash.png';
-  static const String splashDark = 'assets/splash_images/splash_dark.png';
-  static const String appLogo = 'assets/splash_images/news_logo.png';
-  static const String appLogoDark = 'assets/splash_images/news_logo_dark.png';
-  static const String appBranding = 'assets/splash_images/news_branding.png';
-  static const String appBrandingDark =
-      'assets/splash_images/news_branding_dark.png';
-
   //categories
-  static const String general = 'assets/images/general.svg';
-  static const String generalDark = 'assets/images/general_dark.svg';
-  static const String business = 'assets/images/business.svg';
-  static const String businessDark = 'assets/images/business_dark.svg';
-  static const String entertainment = 'assets/images/entertainment.svg';
+  static const String general = 'assets/images/general.png';
+  static const String generalDark = 'assets/images/general_dark.png';
+  static const String business = 'assets/images/business.png';
+  static const String businessDark = 'assets/images/business_dark.png';
+  static const String entertainment = 'assets/images/entertainment.png';
   static const String entertainmentDark =
-      'assets/images/entertainment_dark.svg';
-  static const String health = 'assets/images/health.svg';
-  static const String healthDark = 'assets/images/health_dark.svg';
-  static const String science = 'assets/images/science.svg';
-  static const String scienceDark = 'assets/images/science_dark.svg';
-  static const String sport = 'assets/images/sport.svg';
-  static const String sportDark = 'assets/images/sport_dark.svg';
-  static const String technology = 'assets/images/technology.svg';
-  static const String technologyDark = 'assets/images/technology_dark.svg';
+      'assets/images/entertainment_dark.png';
+  static const String health = 'assets/images/health.png';
+  static const String healthDark = 'assets/images/health_dark.png';
+  static const String science = 'assets/images/science.png';
+  static const String scienceDark = 'assets/images/science_dark.png';
+  static const String sport = 'assets/images/sport.png';
+  static const String sportDark = 'assets/images/sport_dark.png';
+  static const String technology = 'assets/images/technology.png';
+  static const String technologyDark = 'assets/images/technology_dark.png';
 
   //icons
   static const String home = 'assets/icons/home_icon.svg';

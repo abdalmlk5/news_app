@@ -11,7 +11,7 @@ class NewsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: ApiManager.getNewsData(sourcesID),
+      future: ApiManager.getNewsData(sourcesID: sourcesID),
       builder: (context, snapshot) {
         if (snapshot.connectionState == .waiting) {
           return Center(child: CircularProgressIndicator());
@@ -31,6 +31,7 @@ class NewsScreen extends StatelessWidget {
                         border: Border.all(color: Colors.black),
                       ),
                       child: Column(
+                        crossAxisAlignment: .start,
                         children: [
                           Image.network(
                             articles[index].urlToImage ?? '',
@@ -57,7 +58,7 @@ class NewsScreen extends StatelessWidget {
                             mainAxisAlignment: .spaceBetween,
                             children: [
                               Text(
-                                "${articles[index].author?.split(" ")[0]} ${articles[index].author?.split(" ")[1]}",
+                                articles[index].author?.split(" ").first ?? "",
                                 style: AppStyles.gray12500,
                               ),
                               Text(
