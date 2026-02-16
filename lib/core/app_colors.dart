@@ -1,8 +1,15 @@
 import "package:flutter/material.dart";
+import "package:news_app/core/providers/theme_provider.dart";
 
 class AppColors {
-  static Color get primary => AppLightColors.primary;
-  static Color get onPrimary => AppLightColors.onPrimary;
+  AppColors._();
+  static bool get _isDark => ThemeProvider.instance?.isDark() ?? false;
+
+  static Color get primary =>
+      _isDark ? AppDarkColors.primary : AppLightColors.primary;
+  static Color get onPrimary =>
+      _isDark ? AppDarkColors.onPrimary : AppLightColors.onPrimary;
+  static const Color white = Colors.white;
   static const Color gray = Color(0xFFA0A0A0);
   static const Color transparent = Colors.transparent;
 }
