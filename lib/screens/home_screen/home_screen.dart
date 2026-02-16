@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/app_styles.dart';
 import 'package:news_app/models/category_model.dart';
 import 'package:news_app/screens/home_screen/views/categories_view.dart';
 import 'package:news_app/screens/home_screen/views/sources_view.dart';
+import 'package:news_app/screens/home_screen/widgets/home_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = '/';
@@ -19,10 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("home", style: AppStyles.onPrimary24700),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: Text("home")),
+      drawer: HomeDrawer(),
       body: selectedCategory == null
           ? CategoriesView(
               onTap: (CategoryModel model) {
@@ -31,9 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 });
               },
             )
-          : SourcesView(
-        categoryID: selectedCategory!.id,
-      ),
+          : SourcesView(categoryID: selectedCategory!.id),
     );
   }
 }

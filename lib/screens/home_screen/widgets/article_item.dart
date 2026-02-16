@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/core/app_colors.dart';
 import 'package:news_app/models/article_model.dart';
 
 import '../../../core/app_styles.dart';
@@ -15,7 +16,8 @@ class ArticleItem extends StatelessWidget {
       margin: EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.black),
+        border: Border.all(color: AppColors.onPrimary),
+        color: AppColors.onPrimary.withAlpha(20),
       ),
       child: Column(
         crossAxisAlignment: .start,
