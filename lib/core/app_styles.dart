@@ -9,6 +9,11 @@ class AppStyles {
     fontWeight: .w700,
     fontSize: 24,
   );
+  static TextStyle get onPrimary20700 => GoogleFonts.inter(
+    color: AppColors.onPrimary,
+    fontWeight: .w700,
+    fontSize: 20,
+  );
   static TextStyle get onPrimary16700 => GoogleFonts.inter(
     color: AppColors.onPrimary,
     fontWeight: .w700,
@@ -35,10 +40,10 @@ class AppStyles {
   /// //////////////
   //700 primary
   static TextStyle get primary24700 => GoogleFonts.inter(
-      color: AppColors.primary,
-      fontWeight: .w700,
-      fontSize: 24,
-    );
+    color: AppColors.primary,
+    fontWeight: .w700,
+    fontSize: 24,
+  );
   static TextStyle get primary20700 => GoogleFonts.inter(
     color: AppColors.onPrimary,
     fontWeight: .w700,

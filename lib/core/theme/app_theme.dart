@@ -14,6 +14,7 @@ ThemeData lightTheme = ThemeData(
     iconTheme: IconThemeData(color: AppLightColors.onPrimary),
   ),
   scaffoldBackgroundColor: AppLightColors.primary,
+  drawerTheme: DrawerThemeData(backgroundColor: AppLightColors.primary),
 );
 
 ThemeData darkTheme = ThemeData(
@@ -28,4 +29,5 @@ ThemeData darkTheme = ThemeData(
     iconTheme: IconThemeData(color: AppDarkColors.onPrimary),
   ),
   scaffoldBackgroundColor: AppDarkColors.primary,
+  drawerTheme: DrawerThemeData(backgroundColor: AppDarkColors.primary),
 );

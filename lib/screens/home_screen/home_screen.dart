@@ -20,7 +20,16 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("home")),
-      drawer: HomeDrawer(),
+
+      drawer: selectedCategory != null
+          ? HomeDrawer(
+              onGoToHomeClicked: () {
+                setState(() {
+                  selectedCategory = null;
+                });
+              },
+            )
+          : null,
       body: selectedCategory == null
           ? CategoriesView(
               onTap: (CategoryModel model) {
